@@ -19,6 +19,14 @@ db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
 
+# Train model if not exists
+import os
+if not os.path.exists("heart_model.pkl"):
+    print("Training model...")
+    import subprocess
+    subprocess.run(["python", "day1_model.py"], check=True)
+    print("Model trained successfully!")
+
 # Load model and scaler
 model = joblib.load("heart_model.pkl")
 scaler = joblib.load("scaler.pkl")
