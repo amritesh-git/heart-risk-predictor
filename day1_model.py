@@ -57,7 +57,7 @@ lr_preds = lr.predict(X_test_scaled)
 
 # Train Random Forest
 print("Training Random Forest...")
-rf = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
+rf = RandomForestClassifier(n_estimators=20, random_state=42, n_jobs=1)
 rf.fit(X_train, y_train)
 rf_preds = rf.predict(X_test)
 
